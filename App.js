@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Main } from './routes'
 
 export default class App extends React.Component {
+
   render() {
     return (
       <Main />
