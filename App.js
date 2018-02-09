@@ -1,19 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import firebase from './src/firebase';
-class HomeScreen extends React.Component {
+
+import { Main } from './routes'
+
+export default class App extends React.Component {
+
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-      </View>
+      <Main />
     );
   }
 }
 
-export default StackNavigator({
-  Home: {
-    screen: HomeScreen,
-  },
-});
