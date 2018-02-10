@@ -16,7 +16,7 @@ export default class Cam extends React.Component {
 
   snap = async () => {
     if (this.camera) {
-        let photo = await this.camera.takePictureAsync({base64: true});
+        let photo = await this.camera.takePictureAsync();
         this.props.navigation.state.params.returnData(photo.uri);
         this.props.navigation.goBack()
     }

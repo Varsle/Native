@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
 import { Button, Container, Header, Content, Text, Footer, FooterTab } from 'native-base'
+import { StyleSheet, Text, View } from 'react-native';
+import HelpCategoryListView from '../components/HelpCategoryListView';
 
-import HelpCategoryListView from '../components/HelpCategoryListView'
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -11,10 +11,11 @@ export default class HomeScreen extends React.Component {
 
 
   render() {
+    console.log("homescreen", this.props.navigation);
     return (
       <Container>
         <Content style={{ marginTop: '10%' }} padder>
-        <HelpCategoryListView />
+        <HelpCategoryListView nav={this.props.navigation}/>
           <Button
             onPress={() => this.props.navigation.navigate('Submission', {Title: 'Hærverk'})}
           >

@@ -3,7 +3,7 @@ import { StyleSheet, View, TouchableHighlight, Alert } from 'react-native';
 import { Container, Text, Footer, FooterTab, Toast } from 'native-base'
 import { Root } from "native-base";
 
-import { Main } from './routes'
+import { Main } from './routes';
 
 export default class App extends React.Component {
 
@@ -42,4 +42,3 @@ export default class App extends React.Component {
     );
   }
 }
-

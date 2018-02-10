@@ -6,12 +6,16 @@ import HomeScreen from './src/screens/HomeScreen'
 import SubmissionScreen from './src/screens/SubmissionScreen'
 
 import CameraScreen from './src/screens/CameraScreen'
+import CategoryScreen from './src/screens/CategoryScreen'
+import HelpCategoryListView from './src/components/HelpCategoryListView'
+
 
 
 export const Main = StackNavigator({
-  Main: { screen: HomeScreen },
-  Submission: { screen: SubmissionScreen },
-  Camera: { screen: CameraScreen }
+  MainScreen: { screen: HomeScreen },
+  HelpCategoryListView: {screen: HelpCategoryListView},
+  Category: {screen: CategoryScreen}
 }, {
   headerMode: 'none',
+  mode: 'modal'
 })

@@ -5,14 +5,14 @@ import { StyleSheet, Text, View } from 'react-native';
 // Needed before the actual app is shown
 
 export default class SplashScreen extends React.Component {
-    
+
     componentDidMount() {
         //TODO: This is very placeholder
         setTimeout(() => {
             this.props.navigation.navigate('Main')
         }, 1500)
     }
-
+    
     render() {
         return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -21,4 +21,3 @@ export default class SplashScreen extends React.Component {
         );
     }
 }
-
