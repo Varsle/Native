@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Main } from './routes'
+import { Main } from './routes';
 
 export default class App extends React.Component {
 
@@ -11,4 +11,3 @@ export default class App extends React.Component {
     );
   }
 }
-
