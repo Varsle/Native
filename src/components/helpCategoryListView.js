@@ -3,8 +3,31 @@ import { StyleSheet, View } from 'react-native';
 import { Container, Content, Text, List, ListItem} from 'native-base';
 import firebase from '../firebase';
 
+<<<<<<< HEAD
 export default class HelpCategoryListView extends React.Component {
 
+=======
+import firebase from '../firebase'
+
+export default class HelpCategoryListView extends React.Component {
+
+  componentWillMount() {
+    firebase.database().ref('/categories/').once('value')
+      .then((snap) => {
+        var categories = firebase.toArray(snap)
+        console.log(categories)
+      })
+
+
+      // Code for pushing a new object to db
+      // Push generates a new unique ID
+      firebase.database().ref().child('issues').push().set({
+        body: 'Noen har bæsja på gata',
+        location: {lat: 123123, lon: 1231312},
+        phoneNumber: 12345678
+      })
+  }
+>>>>>>> 2e0a38163ce49c85ef939d4eb5c545ad4a154121
 
   render() {
     var items = [
@@ -49,8 +72,6 @@ export default class HelpCategoryListView extends React.Component {
       </Container>
 
     );
-  }
-}
 
 const styles = StyleSheet.create({
   title: {

@@ -10,7 +10,17 @@ const firebaseConfig = {
 
 }
 
+firebase.toArray = (snapshot) => {
+    let returnArr = [];
 
+    snapshot.forEach(childSnapshot => {
+        let item = childSnapshot.val(); 
+        item.key = childSnapshot.key;
+        returnArr.push(item);
+    });
+
+    return returnArr;
+}
 
 
 if (firebase.apps.length === 0) {
