@@ -9,7 +9,7 @@ export default class SplashScreen extends React.Component {
     componentDidMount() {
         //TODO: This is very placeholder
         setTimeout(() => {
-            this.props.navigation.navigate('MainScreen')
+            this.props.navigation.navigate('Main')
         }, 1500)
     }
 

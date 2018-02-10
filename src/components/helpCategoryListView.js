@@ -12,14 +12,19 @@ export default class HelpCategoryListView extends React.Component {
         console.log(categories)
       })
 
-
+      
       // Code for pushing a new object to db
       // Push generates a new unique ID
-      firebase.database().ref().child('issues').push().set({
-        body: 'Noen har bæsja på gata',
-        location: {lat: 123123, lon: 1231312},
-        phoneNumber: 12345678
-      })
+    /*
+     firebase.database().ref().child('issues').push().set({
+        category: 'vandalism',
+        date: new Date().getTime(),
+        description: 'Hallo. Noen har ødelagt min fasade!',
+        photo: 'http://i0.kym-cdn.com/entries/icons/original/000/022/898/827.jpg',
+        location: {lat: 58.154134, lon: 8.009333}
+      }) */
+
+      
   }
 
   render() {
