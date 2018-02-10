@@ -1,82 +1,106 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Container, Content, Text, List, ListItem} from 'native-base';
+import { StyleSheet, View, Image } from 'react-native';
+import { Container, Content, Text, Card, CardItem, Separator, Body, Button, Thumbnail } from 'native-base';
 import firebase from '../firebase';
 
-<<<<<<< HEAD
-export default class HelpCategoryListView extends React.Component {
-
-=======
-import firebase from '../firebase'
 
 export default class HelpCategoryListView extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      categories: null,
+      placeholderImg: require('../../img/logo.png'),
+      loaded: false
+    };
+  }
   componentWillMount() {
+
     firebase.database().ref('/categories/').once('value')
       .then((snap) => {
-        var categories = firebase.toArray(snap)
-        console.log(categories)
+        var cat = firebase.toArray(snap)
+        this.setState({
+          categories: cat,
+          loaded: true
+        });
+        console.log("init", cat);
       })
 
 
       // Code for pushing a new object to db
       // Push generates a new unique ID
-      firebase.database().ref().child('issues').push().set({
-        body: 'Noen har bæsja på gata',
+      /*firebase.database().ref().child('/categories/').push().set({
+        body: 'Politi',
         location: {lat: 123123, lon: 1231312},
         phoneNumber: 12345678
-      })
+      }) */
   }
->>>>>>> 2e0a38163ce49c85ef939d4eb5c545ad4a154121
+
+
+  handleCardPress(item) {
+    this.props.nav.navigate('Category', {
+    item: item,
+    nav: this.props.nav
+    });
+
+
+  }
 
   render() {
-    var items = [
-      {
-        id: 0,
-        title: "Ambulanse",
-        desc: "Ikke akutt medisinks assistanse"
-      },
-      {
-        id: 1,
-        title: "Politi",
-        desc: "Ikke akutt asistanse fra politi"
-      },
-      {
-        id: 2,
-        title: "Brann",
-        desc: "Ikke akutt assistanse fra Brannvesen"
-      },
-      {
-        id: 3,
-        title: "Kommune",
-        desc: "Varsle om skade, feil, mangler ved offentlig eiendom/objekter"
-      }
-  ]
+    while(!this.state.loaded) {
+      return (
+        <Text> Loading... </Text>
+      )
+    }
+    console.log("helpCatRender", this.state.categories[0]);
     return(
-      <Container>
+      <Container style={styles.container}>
           <Content>
-            <List dataArray={items}
-              renderRow={(item) =>
-              <ListItem>
-                <View style={styles.title}>
-                <Text style={{alignSelf: 'center', fontWeight: 'bold', fontSize: 16}}> {item.title}
-                  {"\n"} </Text>
-                </View>
-                <Text> {item.desc} </Text>
-              </ListItem>
-            }>
-            </List>
+            <Card
+              dataArray={this.state.categories}
+              renderRow={(categories) =>
+              <Button transparent style={styles.row} onPress={() => this.handleCardPress(categories)}>
+              <CardItem >
+                <Body>
 
-          </Content>
+              <Text style={{zIndex:1, fontWeight: 'bold', fontSize: 18}}>
+                {categories.name}
+                {"\n"}
+              </Text>
+              <Thumbnail style={styles.img} source={this.state.placeholderImg} />
+              </Body>
+                </CardItem>
+              </Button>
+            }>
+          </Card>
+
+        </Content>
 
       </Container>
 
     );
 
+
+  }
+
+}
+
 const styles = StyleSheet.create({
-  title: {
-    height: 100,
-    flex: 1,
-    paddingBottom: 20
+  container: {
+    paddingTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
+  row: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    paddingBottom: 20,
+    textAlign: 'center',
+    width: '100%',
+    height: '50%',
+    left: '45%',
+  },
+  img: {
+    width: 75,
+    height: 75,
+  }
 });

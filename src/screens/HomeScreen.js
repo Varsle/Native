@@ -5,10 +5,11 @@ import HelpCategoryListView from '../components/HelpCategoryListView';
 
 export default class HomeScreen extends React.Component {
   render() {
+    console.log("homescreen", this.props.navigation);
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Home Screen</Text>
-        <HelpCategoryListView />
+        <HelpCategoryListView nav={this.props.navigation}/>
       </View>
     );
   }
