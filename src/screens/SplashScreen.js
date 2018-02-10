@@ -5,12 +5,12 @@ import { StyleSheet, Text, View } from 'react-native';
 // Needed before the actual app is shown
 
 export default class SplashScreen extends React.Component {
-    
+
     componentDidMount() {
         //TODO: This is very placeholder
         setTimeout(() => {
             this.props.navigation.navigate('MainScreen')
-        }, 1500)
+        }, 100)
     }
 
     render() {
@@ -21,4 +21,3 @@ export default class SplashScreen extends React.Component {
         );
     }
 }
-
