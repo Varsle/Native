@@ -12,8 +12,7 @@ export default class CategoryScreen extends React.Component {
   }
 
   handlePressCategory(item) {
-    //navigate to request screen
-    // send category and subcategory. item currently only has subcategory
+    this.props.navigation.navigate('Submission', {Title: 'Hærverk'})
     console.log(item);
   }
 

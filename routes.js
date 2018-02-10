@@ -14,8 +14,8 @@ import HelpCategoryListView from './src/components/HelpCategoryListView'
 export const Main = StackNavigator({
   MainScreen: { screen: HomeScreen },
   HelpCategoryListView: {screen: HelpCategoryListView},
-  Category: {screen: CategoryScreen}
+  Category: {screen: CategoryScreen},
+  Submission: {screen: SubmissionScreen}
 }, {
   headerMode: 'none',
-  mode: 'modal'
 })

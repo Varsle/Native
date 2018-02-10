@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Header, Content, Text, Footer, FooterTab } from 'native-base'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import HelpCategoryListView from '../components/HelpCategoryListView';
 
 
